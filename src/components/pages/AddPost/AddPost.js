@@ -1,11 +1,13 @@
-import styles from './AddForm.module.scss';
+import AddPostForm from "../../features/AddPostForm/AddPostForm";
 
 const AddPost = () => {
   return (
-    <div className={styles.hero}>
-      <h1>Add Post</h1>
-      <p className={styles.subtitle}>Lorem Ipsum</p>
-    </div>
+    <section className="m-5 px-5">
+      <div className="m-5 px-5">
+        <h1 className="mb-3">Add Post</h1>
+        <AddPostForm />
+      </div>
+    </section>
   );
 };
 

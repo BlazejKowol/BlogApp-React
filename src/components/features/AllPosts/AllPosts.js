@@ -7,16 +7,18 @@ const AllPosts = () => {
     const posts = useSelector(getAllPosts);
 
   return (
-        <section className="d-flex justify-content-between">
+        <section className="d-flex justify-content-between flex-wrap">
         {posts.map(post => (
-            <div className="col-3 border border-2 rounded py-2 ps-2 pe-5">   
-                <h3 className="h4">{post.title}</h3>
-                <h4 className="small"><b>Author: </b>{post.author}</h4>
-                <h4 className="small"><b>Published: </b>{post.date}</h4>
-                <p>{post.description}</p>
-                <button className="border border-none bg-primary rounded py-1">
-                    <Link className="text-decoration-none text-light px-1" key={post.id} to={"/post/" + post.id}>Read more</Link>
-                </button>
+            <div key={post.id} className="col-4">
+                <div className={"border border-2 rounded py-2 ps-2 me-2 mb-2"}>  
+                    <h3 className="h4">{post.title}</h3>
+                    <h4 className="small"><b>Author: </b>{post.author}</h4>
+                    <h4 className="small"><b>Published: </b>{post.date}</h4>
+                    <p>{post.description}</p>         
+                    <button className="border border-none bg-primary rounded py-1">
+                        <Link className="text-decoration-none text-light px-1" key={post.id} to={"/post/" + post.id}>Read more</Link>
+                    </button>
+                </div>
             </div>
         ))}
         </section>
