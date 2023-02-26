@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { getAllPosts } from "../../../redux/postsReducer";
 import { Link } from "react-router-dom";
+import { Col } from "react-bootstrap";
 
 const AllPosts = () => {
 
@@ -9,7 +10,7 @@ const AllPosts = () => {
   return (
         <section className="d-flex justify-content-between flex-wrap">
         {posts.map(post => (
-            <div key={post.id} className="col-4">
+            <Col key={post.id} xs="12" md="6" className="col-lg-4">
                 <div className={"border border-2 rounded py-2 ps-2 me-2 mb-2"}>  
                     <h3 className="h4">{post.title}</h3>
                     <h4 className="small"><b>Author: </b>{post.author}</h4>
@@ -19,7 +20,7 @@ const AllPosts = () => {
                         <Link className="text-decoration-none text-light px-1" key={post.id} to={"/post/" + post.id}>Read more</Link>
                     </button>
                 </div>
-            </div>
+            </Col>
         ))}
         </section>
   );
