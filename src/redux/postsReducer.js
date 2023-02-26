@@ -9,10 +9,12 @@ export const getAllPosts = ({ posts }) => posts;
 const createActionName = actionName => `app/posts/${actionName}`;
 const REMOVE_POST = 'app/posts/REMOVE_POST';
 const ADD_POST = 'app/posts/ADD_POST';
+const EDIT_POST = 'app/posts/EDIT_POST';
 
 // action creators
 export const removePost = payload => ({ type: REMOVE_POST, payload });
 export const addPost = payload => ({ type: ADD_POST, payload });
+export const editPost = payload => ({ type: EDIT_POST, payload});
 const postsReducer = (statePart = [], action) => {
   switch (action.type) {
     case REMOVE_POST:
@@ -20,6 +22,9 @@ const postsReducer = (statePart = [], action) => {
         post => post.id !== action.payload)
     case ADD_POST:
       return [...statePart, { ...action.payload, id: shortid() }]
+    case EDIT_POST:
+      return statePart.map(
+        post => (post.id === action.payload.id ? {...post, ...action.payload} : post))
     default:
       return statePart;
   };
