@@ -1,6 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -26,7 +28,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Label>Short description</Form.Label>
                 <Form.Control as="textarea" rows={4} className="mb-3" value={description} placeholder="Leave a comment here..." type="text" onChange={e => setDescription(e.target.value)} />
             <Form.Label>Main content</Form.Label>
-                <Form.Control as="textarea" rows={8} className="mb-3" value={content} placeholder="Leave a comment here..." type="text" onChange={e => setContent(e.target.value)} />
+                <ReactQuill theme='snow' value={content} placeholder="Leave a comment here..." type="text" onChange={setContent} />
             <Button type="submit" className="border border-none bg-primary rounded py-1">
                 <p className="text-light m-0">{actionText}</p>
             </Button>
