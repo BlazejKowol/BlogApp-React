@@ -27,7 +27,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                 <Form.Control as="textarea" rows={4} className="mb-3" value={description} placeholder="Leave a comment here..." type="text" onChange={e => setDescription(e.target.value)} />
             <Form.Label>Main content</Form.Label>
                 <Form.Control as="textarea" rows={8} className="mb-3" value={content} placeholder="Leave a comment here..." type="text" onChange={e => setContent(e.target.value)} />
-            <Button onClick={handleSubmit} className="border border-none bg-primary rounded py-1">
+            <Button type="submit" className="border border-none bg-primary rounded py-1">
                 <p className="text-light m-0">{actionText}</p>
             </Button>
       </Form>

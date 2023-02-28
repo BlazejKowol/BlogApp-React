@@ -1,10 +1,9 @@
-import styles from './About.module.scss';
 
 const About= () => {
   return (
-    <div className={styles.hero}>
+    <div>
       <h1>About</h1>
-      <p className={styles.subtitle}>Lorem Ipsum</p>
+      <p>Lorem Ipsum</p>
     </div>
   );
 };
