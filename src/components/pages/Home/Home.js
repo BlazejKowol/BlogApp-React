@@ -8,9 +8,9 @@ const Home = () => {
     <section>
         <div className="d-flex justify-content-between my-4">
             <h1 className="h2">All posts</h1>
- 
-                <Link to={"/post/add"} className="text-decoration-none text-info"><Button>Add Post </Button></Link>
-
+                <Link to={"/post/add"} className="text-decoration-none text-info">
+                  <Button>Add Post </Button>
+                </Link>
         </div>
         </section>
       <AllPosts />

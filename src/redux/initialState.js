@@ -20,7 +20,7 @@ const initialState = {
             id: '3',
             title: 'Article Title 3',
             author: 'John Doe',
-            date: new Date('23-02-2023'),
+            date: new Date('02-23-2023'),
             description: 'Short description of the article...',
             content: 'main content of the article...',
         }

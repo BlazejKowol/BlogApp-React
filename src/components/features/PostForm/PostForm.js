@@ -10,19 +10,24 @@ import { useForm } from "react-hook-form";
 
 const PostForm = ({ action, actionText, ...props }) => {
 
-    const { register, handleSubmit: validate, formState: { errors } } = useForm();
-    const [contentError, setContentError] = useState(false);
-    const [dateError, setDateError] = useState(false);
-
         const [title, setTitle] = useState(props.title || '');
         const [author, setAuthor] = useState(props.author || '');
         const [date, setDate] = useState(props.date || '');
         const [description, setDescription] = useState(props.description || '');
         const [content, setContent] = useState(props.content || '');
 
+        const [contentError, setContentError] = useState(false);
+        const [dateError, setDateError] = useState(false);
+
+        const { register, handleSubmit: validate, formState: { errors } } = useForm();
+
         const handleSubmit = () => {
+            setContentError(!content);
+            setDateError(!date);
+            if(content && date) {
             action({title, author, date, description, content});
-        }
+            }
+        };
 
     return (
         <Form onSubmit={validate(handleSubmit)}> 
@@ -45,7 +50,11 @@ const PostForm = ({ action, actionText, ...props }) => {
                 onChange={e => setAuthor(e.target.value)} />
                 {errors.author && <small className="d-block form-text text-danger mt-2">This field is required</small>}
             <Form.Label>Date</Form.Label>
-                <DatePicker className="mb-3 w-50" value={date} onChange={(date) => setDate(dateToString(date))} />
+                <DatePicker 
+                className="mb-3 w-50" 
+                value={date} 
+                onChange={(date) => setDate(dateToString(date))} />
+                {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
             <Form.Label>Short description</Form.Label>
                 <Form.Control
                 {...register("description", { required: true, minLength: 20 })}
@@ -58,7 +67,13 @@ const PostForm = ({ action, actionText, ...props }) => {
                 onChange={e => setDescription(e.target.value)} />
                 {errors.description && <small className="d-block form-text text-danger mt-2">This field is required</small>}
             <Form.Label>Main content</Form.Label>
-                <ReactQuill theme='snow' value={content} placeholder="Leave a comment here..." type="text" onChange={setContent} />
+                <ReactQuill 
+                theme='snow' 
+                value={content} 
+                placeholder="Leave a comment here..." 
+                type="text" 
+                onChange={setContent} />
+                {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
             <Button type="submit" className="border border-none bg-primary rounded py-1">
                 <p className="text-light m-0">{actionText}</p>
             </Button>
