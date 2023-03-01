@@ -6,6 +6,7 @@ import Modals from "../../common/Modals/Modals";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router";
+import dateToString from "../../../utils/dateToString";
 
 const Post = () => {
 
@@ -43,7 +44,7 @@ const Post = () => {
         </div>
       </section>
         <h4 className="small"><b>Author: </b>{postData.author}</h4>
-        <h4 className="small mb-4"><b>Published: </b>{postData.date}</h4>
+        <h4 className="small mb-4"><b>Published: </b>{dateToString(postData.date)}</h4>
         <p dangerouslySetInnerHTML={{ __html: postData.content }} />
     </div>
   );
