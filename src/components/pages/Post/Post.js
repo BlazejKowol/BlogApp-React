@@ -44,7 +44,8 @@ const Post = () => {
         </div>
       </section>
         <h4 className="small"><b>Author: </b>{postData.author}</h4>
-        <h4 className="small mb-4"><b>Published: </b>{dateToString(postData.date)}</h4>
+        <h4 className="small"><b>Published: </b>{dateToString(postData.date)}</h4>
+        <h4 className="small"><b>Category: </b>{postData.category}</h4>
         <p dangerouslySetInnerHTML={{ __html: postData.content }} />
     </div>
   );

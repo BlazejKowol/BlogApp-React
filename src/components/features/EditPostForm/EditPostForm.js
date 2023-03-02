@@ -29,6 +29,7 @@ const EditPostForm = () => {
         title={postData.title}
         author={postData.author}
         date={dateToString(postData.date)}
+        category={postData.category}
         description={postData.description}
         content={postData.content} /> 
     );
