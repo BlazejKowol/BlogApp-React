@@ -1,7 +1,7 @@
 // selector
 export const getAllCategories = state => state.categories;
-export const getCategoriesByTitle = ({ categories }, title) => 
-  categories.find(category => category.title === title);
+export const getFilteredPosts = ({ posts }, category) => posts
+  .filter(post => post.category === category); 
 
 // action
 

@@ -18,9 +18,9 @@ const AllPosts = () => {
                     <h4 className="small"><b>Published: </b>{dateToString(post.date)}</h4>
                     <h4 className="small"><b>Category: </b>{post.category}</h4>
                     <p>{post.description}</p>      
-                    <Button type="submit" className="border border-none bg-primary rounded py-1">
-                        <Link className="text-decoration-none text-light px-1" key={post.id} to={"/post/" + post.id}>Read more</Link>
-                    </Button>
+                    <Link className="text-decoration-none text-light px-1" key={post.id} to={"/post/" + post.id}>
+                        <Button type="submit" className="border border-none bg-primary rounded py-1">Read more</Button>
+                    </Link>
                 </div>
             </Col>
         ))}

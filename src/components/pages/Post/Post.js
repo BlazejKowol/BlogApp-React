@@ -35,9 +35,9 @@ const Post = () => {
       <section className="d-flex justify-content-between mb-3">
         <h3>{postData.title}</h3>
         <div>
-          <button className="btn border-info bg-transparent py-0 mx-1">
-            <Link className="text-decoration-none" key={id} to={"/post/edit/" + id}><p className="m-2 text-info">Edit</p></Link>
-          </button>
+          <Link className="text-decoration-none" key={id} to={"/post/edit/" + id}>
+            <button className="btn border-info bg-transparent py-2 px-3 mx-1 text-info">Edit</button>
+          </Link>
           <button onClick={handleShow} className="btn border-danger bg-transparent py-0 mx-1">
             <p className="m-2 text-danger">Delete</p>
           </button>

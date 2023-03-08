@@ -30,9 +30,9 @@ const PostForm = ({ action, actionText, ...props }) => {
         const handleSubmit = () => {
             setContentError(!content);
             setDateError(!date);
-            setCategoryError(!categoryState)
+            setCategoryError(!categoryState);
             if(content && categoryState && date) {
-            action({title, author, date, categoryState, description, content});
+            action({title, author, date, category: categoryState, description, content});
             }
         };
 
@@ -63,12 +63,12 @@ const PostForm = ({ action, actionText, ...props }) => {
                 onChange={(date) => setDate(dateToString(date))} />
                 {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
             <Form.Label>Category</Form.Label>
-                <Form.Select className="mb-3 w-50">
+                <Form.Select className="mb-3 w-50"
+                value={categoryState}
+                onChange={e => setCategoryState(e.target.value)}>
                 <option>Select category...</option>
                 {categories.map(category => 
-                <option 
-                value={categoryState} 
-                onChange={e => setCategoryState(e.target.value)}>
+                <option>
                     {category.title}
                 </option>)}
                 </Form.Select>
